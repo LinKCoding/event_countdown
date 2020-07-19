@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+  },
+  "files": [
+    "main.ts",
+    "selectors.ts",
+    "converters.ts",
+  ]
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="module" src="selectors.js" defer></script>
+  <script type="module" src="converters.js" defer></script>
+  <script type="module" src="main.js" defer></script>
+  
+</head>
+<body>
+  <section>
+    <h1>Set Countdown Parameters</h1>
+    <form id="cd-form">
+      <label for="timezone">Timezone:</label>
+      <select id="timezone" name="timezone" required>
+        <option value="eastern">Eastern</option>
+        <option value="central">Central</option>
+        <option value="mountain">Mountain</option>
+        <option value="pacific">Pacific</option>
+        <option value="alaska">Alaska</option>
+        <option value="hawaii">Hawaii</option>
+      </select>
+      <br>
+
+      <label for="mode">Mode</label>
+      <select id="mode" name="mode" required>
+        <option value="time">Set End Time</option>
+        <option value="minutes">Set Number of Minutes</option>
+      </select>
+      
+      <section id="set-time">
+        <label for="start-time">Start Time:</label>
+        <input id="start-time" type="time" name="start-time" min="09:00" max="18:00" value="13:00" required>
+      </section>
+      
+      <section id="set-minutes">
+        <label for="minutes">Minutes</label>
+        <input id="minutes" type="number" name="minutes" required>
+        <label for="seconds">Seconds</label>
+        <input id="seconds" type="number" name="seconds" required>
+      </section>
+      <br>
+    
+      <div>
+        <input type="radio" id="redirect" name="finish-action">
+        <label for="redirect">Redirect To:</label>
+        <input type="text" placeholder="Add link here">
+      </div>
+      
+      <div>
+        <input type="radio" id="close" name="finish-action" value="close">
+        <label for="close">Close Window</label>
+      </div>
+      
+      <div>
+        <input type="radio" id="nothing" name="finish-action" value="nothing" checked>
+        <label for="nothing">Do nothing...</label>
+      </div>
+      
+      <input type="submit" value="Start Countdown">
+    </form>
+  </section>
+</body>
+</html>
+
