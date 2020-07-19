@@ -3,6 +3,7 @@
     "module": "es2015",
     "noImplicitAny": true,
     "preserveConstEnums": true,
+    "target": "es6",
   },
   "files": [
     "main.ts",

@@ -1,9 +1,9 @@
-var display = document.getElementById('display');
-var form = document.getElementById('cd-form');
-var timezone = document.getElementById('timezone');
-var mode = document.getElementById('mode');
-var startTime = document.getElementById('start-time');
-var minutes = document.getElementById('minutes');
-var seconds = document.getElementById('seconds');
-var startButton = document.getElementById('start');
-export default { display: display, form: form, timezone: timezone, mode: mode, startTime: startTime, minutes: minutes, seconds: seconds, startButton: startButton };
+const display = document.getElementById('display');
+const form = document.getElementById('cd-form');
+const timezone = document.getElementById('timezone');
+const mode = document.getElementById('mode');
+const startTime = document.getElementById('start-time');
+const minutes = document.getElementById('minutes');
+const seconds = document.getElementById('seconds');
+const startButton = document.getElementById('start');
+export default { display, form, timezone, mode, startTime, minutes, seconds, startButton };
