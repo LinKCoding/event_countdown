@@ -3,14 +3,12 @@ import calculateTimeUsingClock from './converters.js'
 
 const { display, form, timezone, mode, startTime, minutes, seconds, startButton } = elements
 
-// startButton.onclick((event: MouseEvent) => {
-//   // const target = e.target as HTMLElement;
-  
-//   event.preventDefault()
-//   return null
-// })
+const startTimeValue: Date = new Date(Date.prototype.setHours.apply(new Date(), startTime.value.split(':')));
 
-const timeLeft: number = calculateTimeUsingClock('eastern', new Date('July 19, 2020 18:20:00'))
+// console.log(startTimeValue);
+
+
+const timeLeft: number = calculateTimeUsingClock('eastern', startTimeValue)
 
 startButton.addEventListener('click', e => {
   e.preventDefault()

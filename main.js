@@ -1,12 +1,9 @@
 import elements from './selectors.js';
 import calculateTimeUsingClock from './converters.js';
 const { display, form, timezone, mode, startTime, minutes, seconds, startButton } = elements;
-// startButton.onclick((event: MouseEvent) => {
-//   // const target = e.target as HTMLElement;
-//   event.preventDefault()
-//   return null
-// })
-const timeLeft = calculateTimeUsingClock('eastern', new Date('July 19, 2020 18:20:00'));
+const startTimeValue = new Date(Date.prototype.setHours.apply(new Date(), startTime.value.split(':')));
+// console.log(startTimeValue);
+const timeLeft = calculateTimeUsingClock('eastern', startTimeValue);
 startButton.addEventListener('click', e => {
     e.preventDefault();
     display.innerHTML = `Time left: ${timeLeft}`;
