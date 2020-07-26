@@ -1,7 +1,7 @@
 import elements from './selectors.js'
 import helperFuncs from './converters.js'
 
-const { display, form, timezone, mode, startTime, minutes, seconds, startButton } = elements
+const { display, form, mode, startTime, minutes, seconds, startButton } = elements
 let minutesVal = minutes.value ? parseInt(minutes.value, 10) : 0
 let secondsVal = seconds.value ? parseInt(seconds.value, 10) : 0
 //TODO: add event listeners here
