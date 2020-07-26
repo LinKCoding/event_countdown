@@ -39,21 +39,16 @@ radioButtons.forEach(button => {
   button.onchange = (e => {
     const element = e.target as HTMLInputElement    
     state.finishedAction = element.id
-    console.log(state);
-    
   })
 })
 
-//TODO: add event listeners here
-const { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs } = helperFuncs
+const { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs, executeFinishedAction } = helperFuncs
 
 const startTimeValue: Date = new Date(Date.prototype.setHours.apply(new Date(), startTime.value.split(':')));
 
 // console.log(startTimeValue);
 
-
-const timeLeft: number = calculateTimeUsingClock('eastern', startTimeValue)
-
+// const timeLeft: number = calculateTimeUsingClock('eastern', startTimeValue)
 
 startButton.addEventListener('click', e => {
   e.preventDefault()
@@ -71,6 +66,7 @@ startButton.addEventListener('click', e => {
       if (timersTime.minutes === 0) {
         display.innerHTML = `Time's up!`
         clearInterval(updateClock)
+        if(state.finishedAction === "redirect") window.location.href = redirectLink.value
       }
       timersTime.minutes--
       timersTime.seconds = 60
@@ -80,7 +76,6 @@ startButton.addEventListener('click', e => {
   }, 1000)
 })
 
-// console.log(calculateTimeUsingClock('eastern', new Date('July 19, 2020 18:11:00')));
 
 
 

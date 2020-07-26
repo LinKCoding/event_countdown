@@ -25,4 +25,20 @@ function convertMilisecsToMinsAndSecs (miliseconds: number){
   return { minutes, seconds }
 }
 
-export default { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs }
+function executeFinishedAction(choice: string, url: string = "https://www.codecademy.com/learn") {
+  switch(choice) {
+    case "redirect":
+      window.location.href = url
+      break;
+    case "close":
+      window.open('', '_self', '');
+      window.close();
+      break;
+    case "nothing":
+      return;
+    default:
+      return;
+  }
+}
+
+export default { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs, executeFinishedAction }
