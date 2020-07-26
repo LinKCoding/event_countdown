@@ -9,12 +9,14 @@ function calculateTimeUsingClock(mode, futureTime) {
     return diff;
 }
 function calculateTimeUsingTimer(minutes, seconds) {
+    console.log("first funct", "minutes is", minutes, "seconds is", seconds);
     return (minutes * 60 + seconds) * 1000;
 }
 function convertMilisecsToMinsAndSecs(miliseconds) {
-    miliseconds *= 1000;
+    miliseconds /= 1000;
     let minutes = Math.round(miliseconds / 60);
     let seconds = miliseconds % 60;
+    console.log("minutes is", minutes, "seconds is", seconds);
     return { minutes, seconds };
 }
 export default { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs };

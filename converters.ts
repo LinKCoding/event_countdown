@@ -12,13 +12,15 @@ function calculateTimeUsingClock (mode: string, futureTime: Date) {
 }
 
 function calculateTimeUsingTimer (minutes: number, seconds: number) {
+  console.log("first funct","minutes is", minutes, "seconds is", seconds)
   return (minutes * 60 + seconds) * 1000
 }
 
 function convertMilisecsToMinsAndSecs (miliseconds: number){
-  miliseconds *= 1000
+  miliseconds /= 1000
   let minutes = Math.round(miliseconds / 60)
   let seconds = miliseconds % 60
+  console.log("minutes is", minutes, "seconds is", seconds)
   return { minutes, seconds }
 }
 
