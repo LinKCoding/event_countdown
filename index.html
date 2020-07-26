@@ -16,20 +16,20 @@
       <!-- Make the mode a toggle instead... -->
       <label for="mode">Mode</label>
       <select id="mode" name="mode" required>
-        <option value="time">Set End Time</option>
-        <option value="minutes">Set Number of Minutes</option>
+        <option value="clock">Set End Time</option>
+        <option value="minutes-secs">Set Number of Minutes</option>
       </select>
       
       <section id="set-time">
         <label for="start-time">Start Time:</label>
-        <input id="start-time" type="time" name="start-time" min="09:00" max="23:59" value="18:40" required>
+        <input id="start-time" type="time" name="start-time" min="09:00" max="23:59" value="13:00" required>
       </section>
       
       <section id="set-minutes">
         <label for="minutes">Minutes</label>
-        <input id="minutes" type="number" name="minutes">
+        <input id="minutes" type="number" name="minutes" value="0">
         <label for="seconds">Seconds</label>
-        <input id="seconds" type="number" name="seconds">
+        <input id="seconds" type="number" name="seconds" value="0">
       </section>
       <br>
     
