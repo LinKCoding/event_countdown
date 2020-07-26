@@ -1,5 +1,6 @@
 // TODO: once it hits 1 minute, start calculating the seconds
-// TODO: incorporate mode
+// TODO: remove mode 
+// TODO: Rename this helper functions or something
 function calculateTimeUsingClock (mode: string, futureTime: Date) {
   const timeNow: number = new Date().getTime()
   
