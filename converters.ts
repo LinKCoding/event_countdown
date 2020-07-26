@@ -11,4 +11,15 @@ function calculateTimeUsingClock (mode: string, futureTime: Date) {
   return diff
 }
 
-export default calculateTimeUsingClock
+function calculateTimeUsingTimer (minutes: number, seconds: number) {
+  return (minutes * 60 + seconds) * 1000
+}
+
+function convertMilisecsToMinsAndSecs (miliseconds: number){
+  miliseconds *= 1000
+  let minutes = Math.round(miliseconds / 60)
+  let seconds = miliseconds % 60
+  return { minutes, seconds }
+}
+
+export default { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs }

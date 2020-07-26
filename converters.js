@@ -8,4 +8,13 @@ function calculateTimeUsingClock(mode, futureTime) {
     diff = Math.round(diff / 60000);
     return diff;
 }
-export default calculateTimeUsingClock;
+function calculateTimeUsingTimer(minutes, seconds) {
+    return (minutes * 60 + seconds) * 1000;
+}
+function convertMilisecsToMinsAndSecs(miliseconds) {
+    miliseconds *= 1000;
+    let minutes = Math.round(miliseconds / 60);
+    let seconds = miliseconds % 60;
+    return { minutes, seconds };
+}
+export default { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs };
