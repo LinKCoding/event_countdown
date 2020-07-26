@@ -2,6 +2,8 @@ import elements from './selectors.js'
 import helperFuncs from './converters.js'
 
 const { display, form, timezone, mode, startTime, minutes, seconds, startButton } = elements
+let minutesVal = minutes.value ? parseInt(minutes.value, 10) : 0
+let secondsVal = seconds.value ? parseInt(seconds.value, 10) : 0
 //TODO: add event listeners here
 const { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs } = helperFuncs
 
@@ -11,12 +13,11 @@ const startTimeValue: Date = new Date(Date.prototype.setHours.apply(new Date(), 
 
 
 const timeLeft: number = calculateTimeUsingClock('eastern', startTimeValue)
-const timerCountdown: number = calculateTimeUsingTimer(parseInt(minutes.value), parseInt(seconds.value))
-let timersTime = convertMilisecsToMinsAndSecs(timerCountdown)
+
 
 startButton.addEventListener('click', e => {
   e.preventDefault()
-  const timerCountdown: number = calculateTimeUsingTimer(parseInt(minutes.value), parseInt(seconds.value))
+  const timerCountdown: number = calculateTimeUsingTimer(minutesVal, secondsVal)
   let timersTime = convertMilisecsToMinsAndSecs(timerCountdown)
   display.innerHTML = `Time left: ${timersTime.minutes} minutes and ${timersTime.seconds} seconds`
   let repeater: number = 1
