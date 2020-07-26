@@ -2,53 +2,48 @@ import elements from './selectors.js'
 // import eventListeners from '.eventListeners.js'
 import helperFuncs from './converters.js'
 
-const { display, form, mode, startTime, minutes, seconds, startButton } = elements
-// const { modeChange } = eventListeners
+const { display, form, mode, startTime, minutes, seconds, startButton, redirectRadio, closeRadio, nothingRadio, redirectLink } = elements
 
 let state = {
   mode: "clock",
   // should this be 1PM?
   startTime: new Date(Date.prototype.setHours.apply(new Date(), startTime.value.split(':'))),
   minutes: 0,
-  seconds: 0
+  seconds: 0,
+  finishedAction: "nothing"
 }
 
 mode.onchange = (e) => {  
   const element = e.currentTarget as HTMLSelectElement
   const value = element.selectedOptions[0].value
   
-  state = {
-    ...state, 
-    mode: value
-  }  
+  state.mode = value
 }
 
 minutes.onchange = (e) => {
   const element = e.target as HTMLInputElement
   const value = parseInt(element.value)
   
-  state = {
-    ...state,
-    minutes: value
-  }
-  console.log(state);
-  
+  state.minutes = value
 }
 
 seconds.onchange = (e) => {
   const element = e.target as HTMLInputElement
   const value = parseInt(element.value)
 
-  state = {
-    ...state,
-    seconds: value
-  }
-  console.log(state);
-  
+  state.seconds = value 
 }
 
-let minutesVal = minutes.value ? parseInt(minutes.value, 10) : 0
-let secondsVal = seconds.value ? parseInt(seconds.value, 10) : 0
+let radioButtons = [redirectRadio, closeRadio, nothingRadio]
+radioButtons.forEach(button => {
+  button.onchange = (e => {
+    const element = e.target as HTMLInputElement    
+    state.finishedAction = element.id
+    console.log(state);
+    
+  })
+})
+
 //TODO: add event listeners here
 const { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs } = helperFuncs
 
