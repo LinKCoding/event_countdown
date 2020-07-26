@@ -2,7 +2,7 @@ import elements from './selectors.js'
 // import eventListeners from '.eventListeners.js'
 import helperFuncs from './converters.js'
 
-const { display, form, mode, startTime, minutes, seconds, startButton, redirectRadio, closeRadio, nothingRadio, redirectLink } = elements
+const { display, form, mode, startTime, minutes, seconds, startButton, redirectRadio, nothingRadio, redirectLink } = elements
 
 let state = {
   mode: "clock",
