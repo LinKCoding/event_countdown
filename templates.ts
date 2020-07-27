@@ -45,3 +45,11 @@ function createForm (
   `
 }
 
+function displayCountdown(minutes: string, seconds: string) {
+  return `
+  <h1>Time Left:</h1>
+  <h2>Minutes: <span id="minsLeft"></span> Seconds: <span id="secsLeft"></span>  </h2>
+  <button id="backButton">Go Back to Form</button>
+  `
+}
+
