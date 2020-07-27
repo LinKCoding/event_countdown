@@ -6,7 +6,6 @@ const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
 const startButton = document.getElementById('start');
 const redirectRadio = document.getElementById('redirect');
-const closeRadio = document.getElementById('close');
 const nothingRadio = document.getElementById('nothing');
 const redirectLink = document.getElementById('redirect-link');
-export default { display, form, mode, startTime, minutes, seconds, startButton, redirectRadio, closeRadio, nothingRadio, redirectLink };
+export default { display, form, mode, startTime, minutes, seconds, startButton, redirectRadio, nothingRadio, redirectLink };

@@ -1,29 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script type="module" src="selectors.js" defer></script>
-  <script type="module" src="converters.js" defer></script>
-  <script type="module" src="templates.js" defer></script>
-  <script type="module" src="main.js" defer></script>
-  
-</head>
-<body>
-  <section id="display">
+function createForm(mode, clock, minutes, seconds, finishedAction) {
+    return `
     <h1>Set Countdown Parameters</h1>
     <form id="cd-form">
       <!-- Make the mode a toggle instead... -->
       <label for="mode">Mode</label>
       <select id="mode" name="mode" required>
-        <option value="clock">Set End Time</option>
-        <option value="timer">Set Number of Minutes</option>
+        <option value="clock" selected="${mode === 'clock'}">Set End Time</option>
+        <option value="timer" selected="${mode === 'timer'}">Set Number of Minutes</option>
       </select>
       
       <section id="set-time">
         <label for="start-time">Start Time:</label>
-        <input id="start-time" type="time" name="start-time" min="09:00" max="23:59" value="13:00" required>
+        <input id="start-time" type="time" name="start-time" min="09:00" max="23:59" value="${clock}"required>
       </section>
       
       <section id="set-minutes">
@@ -47,7 +35,5 @@
       
       <input id="start" type="submit" value="Start Countdown">
     </form>
-  </section>
-</body>
-</html>
-
+  `;
+}

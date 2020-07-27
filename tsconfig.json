@@ -9,5 +9,6 @@
     "main.ts",
     "selectors.ts",
     "converters.ts",
+    "templates.ts",
   ]
 }

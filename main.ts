@@ -34,7 +34,7 @@ seconds.onchange = (e) => {
   state.seconds = value 
 }
 
-let radioButtons = [redirectRadio, closeRadio, nothingRadio]
+let radioButtons = [redirectRadio, nothingRadio]
 radioButtons.forEach(button => {
   button.onchange = (e => {
     const element = e.target as HTMLInputElement    
@@ -44,7 +44,7 @@ radioButtons.forEach(button => {
 
 const { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs, executeFinishedAction } = helperFuncs
 
-const startTimeValue: Date = new Date(Date.prototype.setHours.apply(new Date(), startTime.value.split(':')));
+// const startTimeValue: Date = new Date(Date.prototype.setHours.apply(new Date(), startTime.value.split(':')));
 
 // console.log(startTimeValue);
 

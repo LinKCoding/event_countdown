@@ -1,7 +1,7 @@
 import elements from './selectors.js';
 // import eventListeners from '.eventListeners.js'
 import helperFuncs from './converters.js';
-const { display, form, mode, startTime, minutes, seconds, startButton, redirectRadio, closeRadio, nothingRadio, redirectLink } = elements;
+const { display, form, mode, startTime, minutes, seconds, startButton, redirectRadio, nothingRadio, redirectLink } = elements;
 let state = {
     mode: "clock",
     // should this be 1PM?
@@ -25,7 +25,7 @@ seconds.onchange = (e) => {
     const value = parseInt(element.value);
     state.seconds = value;
 };
-let radioButtons = [redirectRadio, closeRadio, nothingRadio];
+let radioButtons = [redirectRadio, nothingRadio];
 radioButtons.forEach(button => {
     button.onchange = (e => {
         const element = e.target;
@@ -33,7 +33,7 @@ radioButtons.forEach(button => {
     });
 });
 const { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs, executeFinishedAction } = helperFuncs;
-const startTimeValue = new Date(Date.prototype.setHours.apply(new Date(), startTime.value.split(':')));
+// const startTimeValue: Date = new Date(Date.prototype.setHours.apply(new Date(), startTime.value.split(':')));
 // console.log(startTimeValue);
 // const timeLeft: number = calculateTimeUsingClock('eastern', startTimeValue)
 startButton.addEventListener('click', e => {
