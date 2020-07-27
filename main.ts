@@ -57,12 +57,11 @@ startButton.addEventListener('click', e => {
   const timerCountdown: number = calculateTimeUsingTimer(state.minutes, state.seconds)
   
   let timersTime = convertMilisecsToMinsAndSecs(timerCountdown)
-  display.innerHTML = `Time left: ${timersTime.minutes} minutes and ${timersTime.seconds} seconds`
-  let repeater: number = 1
+  countdownTemplate(timersTime.minutes, timersTime.seconds)
   // TODO: Uncomment later when other things work...
   const updateClock = setInterval(() => {
     // display.innerHTML = `Time left: ${timeLeft} <p>This works ${'!'.repeat(repeater)}</p>`
-    display.innerHTML = `Time left: ${timersTime.minutes} minutes and ${timersTime.seconds} seconds`
+    display.innerHTML = countdownTemplate(timersTime.minutes, timersTime.seconds)
     // repeater++
     if(timersTime.seconds === 0) {
       if (timersTime.minutes === 0) {

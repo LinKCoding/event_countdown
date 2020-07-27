@@ -1,7 +1,10 @@
 import elements from './selectors.js';
 // import eventListeners from '.eventListeners.js'
 import helperFuncs from './converters.js';
+import displayers from './templates.js';
 const { display, form, mode, startTime, minutes, seconds, startButton, redirectRadio, nothingRadio, redirectLink } = elements;
+const { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs, executeFinishedAction } = helperFuncs;
+const { formTemplate, countdownTemplate } = displayers;
 let state = {
     mode: "clock",
     // should this be 1PM?
@@ -32,7 +35,6 @@ radioButtons.forEach(button => {
         state.finishedAction = element.id;
     });
 });
-const { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs, executeFinishedAction } = helperFuncs;
 // const startTimeValue: Date = new Date(Date.prototype.setHours.apply(new Date(), startTime.value.split(':')));
 // console.log(startTimeValue);
 // const timeLeft: number = calculateTimeUsingClock('eastern', startTimeValue)
@@ -40,12 +42,12 @@ startButton.addEventListener('click', e => {
     e.preventDefault();
     const timerCountdown = calculateTimeUsingTimer(state.minutes, state.seconds);
     let timersTime = convertMilisecsToMinsAndSecs(timerCountdown);
-    display.innerHTML = `Time left: ${timersTime.minutes} minutes and ${timersTime.seconds} seconds`;
+    countdownTemplate(timersTime.minutes, timersTime.seconds);
     let repeater = 1;
     // TODO: Uncomment later when other things work...
     const updateClock = setInterval(() => {
         // display.innerHTML = `Time left: ${timeLeft} <p>This works ${'!'.repeat(repeater)}</p>`
-        display.innerHTML = `Time left: ${timersTime.minutes} minutes and ${timersTime.seconds} seconds`;
+        display.innerHTML = countdownTemplate(timersTime.minutes, timersTime.seconds);
         // repeater++
         if (timersTime.seconds === 0) {
             if (timersTime.minutes === 0) {

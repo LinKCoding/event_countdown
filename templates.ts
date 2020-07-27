@@ -45,10 +45,10 @@ function formTemplate (
   `
 }
 
-function countdownTemplate(minutes: string, seconds: string) {
+function countdownTemplate(minutes: number, seconds: number) {
   return `
   <h1>Time Left:</h1>
-  <h2>Minutes: <span id="minsLeft"></span> Seconds: <span id="secsLeft"></span>  </h2>
+  <h2>Minutes: <span id="minsLeft">${minutes}</span> Seconds: <span id="secsLeft">${seconds}</span>  </h2>
   <button id="backButton">Go Back to Form</button>
   `
 }
