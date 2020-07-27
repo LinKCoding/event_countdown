@@ -1,8 +1,11 @@
 import elements from './selectors.js'
 // import eventListeners from '.eventListeners.js'
 import helperFuncs from './converters.js'
+import displayers from './templates.js'
 
 const { display, form, mode, startTime, minutes, seconds, startButton, redirectRadio, nothingRadio, redirectLink } = elements
+const { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs, executeFinishedAction } = helperFuncs
+const { formTemplate, countdownTemplate  } = displayers
 
 let state = {
   mode: "clock",
@@ -42,7 +45,6 @@ radioButtons.forEach(button => {
   })
 })
 
-const { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs, executeFinishedAction } = helperFuncs
 
 // const startTimeValue: Date = new Date(Date.prototype.setHours.apply(new Date(), startTime.value.split(':')));
 

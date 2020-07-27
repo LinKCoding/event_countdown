@@ -1,4 +1,4 @@
-function createForm (
+function formTemplate (
   mode: string, 
   clock: string = "13:00",
   minutes: string = "0", 
@@ -45,7 +45,7 @@ function createForm (
   `
 }
 
-function displayCountdown(minutes: string, seconds: string) {
+function countdownTemplate(minutes: string, seconds: string) {
   return `
   <h1>Time Left:</h1>
   <h2>Minutes: <span id="minsLeft"></span> Seconds: <span id="secsLeft"></span>  </h2>
@@ -53,3 +53,5 @@ function displayCountdown(minutes: string, seconds: string) {
   `
 }
 
+
+export default { formTemplate, countdownTemplate }
