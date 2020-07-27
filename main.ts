@@ -5,7 +5,7 @@ import displayers from './templates.js'
 
 const { display, form, mode, startTime, minutes, seconds, startButton, redirectRadio, nothingRadio, redirectLink } = elements
 const { calculateTimeUsingClock, calculateTimeUsingTimer, convertMilisecsToMinsAndSecs, executeFinishedAction } = helperFuncs
-const { formTemplate, countdownTemplate  } = displayers
+const { formTemplate, countdownTemplate, updateTime  } = displayers
 
 let state = {
   mode: "clock",
@@ -57,24 +57,41 @@ startButton.addEventListener('click', e => {
   const timerCountdown: number = calculateTimeUsingTimer(state.minutes, state.seconds)
   
   let timersTime = convertMilisecsToMinsAndSecs(timerCountdown)
-  countdownTemplate(timersTime.minutes, timersTime.seconds)
-  // TODO: Uncomment later when other things work...
+  display.innerHTML = countdownTemplate(timersTime.minutes, timersTime.seconds)
+  
+  const backButton = document.getElementById('backButton')
+  const timeLeft = document.getElementById('timeLeft')
+  
   const updateClock = setInterval(() => {
     // display.innerHTML = `Time left: ${timeLeft} <p>This works ${'!'.repeat(repeater)}</p>`
-    display.innerHTML = countdownTemplate(timersTime.minutes, timersTime.seconds)
+    timeLeft.innerHTML = updateTime(timersTime.minutes, timersTime.seconds)
     // repeater++
     if(timersTime.seconds === 0) {
       if (timersTime.minutes === 0) {
-        display.innerHTML = `Time's up!`
+        // display.innerHTML = `Time's up!`
         clearInterval(updateClock)
         if(state.finishedAction === "redirect") window.location.href = redirectLink.value
       }
       timersTime.minutes--
-      timersTime.seconds = 60
+      timersTime.seconds = 59
+      console.log("timmer is running");
+      
     } else {
       timersTime.seconds--
+      console.log("timmer is running");
     }
   }, 1000)
+
+  backButton.onclick = (e => {
+    clearInterval(updateClock)
+    console.log('hi');
+    // TODO: fix that 2nd argument...
+    display.innerHTML = formTemplate(state.mode, state.startTime.toString().match(/(\d+:\d+)/)[0], state.minutes, state.seconds, state.finishedAction, redirectLink.value)
+    // display.innerHTML = ""
+  })
+  console.log("this function exists", backButton.onclick);
+  // backButton.click();
+  
 })
 
 

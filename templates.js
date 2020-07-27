@@ -1,4 +1,4 @@
-function formTemplate(mode, clock = "13:00", minutes = "0", seconds = "0", finishedAction, url = "https://www.codecademy.com/learn") {
+function formTemplate(mode, clock = "13:00:00", minutes = 0, seconds = 0, finishedAction, url = "https://www.codecademy.com/learn") {
     return `
     <h1>Set Countdown Parameters</h1>
     <form id="cd-form">
@@ -40,8 +40,11 @@ function formTemplate(mode, clock = "13:00", minutes = "0", seconds = "0", finis
 function countdownTemplate(minutes, seconds) {
     return `
   <h1>Time Left:</h1>
-  <h2>Minutes: <span id="minsLeft">${minutes}</span> Seconds: <span id="secsLeft">${seconds}</span>  </h2>
+  <h2 id="timeLeft">Minutes: <span id="minsLeft">${minutes}</span> Seconds: <span id="secsLeft">${seconds}</span>  </h2>
   <button id="backButton">Go Back to Form</button>
   `;
 }
-export default { formTemplate, countdownTemplate };
+function updateTime(minutes, seconds) {
+    return `<h2 id="timeLeft">Minutes: <span id="minsLeft">${minutes}</span> Seconds: <span id="secsLeft">${seconds}</span>  </h2>`;
+}
+export default { formTemplate, countdownTemplate, updateTime };

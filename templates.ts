@@ -1,8 +1,8 @@
 function formTemplate (
   mode: string, 
-  clock: string = "13:00",
-  minutes: string = "0", 
-  seconds: string = "0",
+  clock: string = "13:00:00",
+  minutes: number = 0, 
+  seconds: number = 0,
   finishedAction: string,
   url: string = "https://www.codecademy.com/learn"
 ) {
@@ -48,10 +48,15 @@ function formTemplate (
 function countdownTemplate(minutes: number, seconds: number) {
   return `
   <h1>Time Left:</h1>
-  <h2>Minutes: <span id="minsLeft">${minutes}</span> Seconds: <span id="secsLeft">${seconds}</span>  </h2>
+  <h2 id="timeLeft">Minutes: <span id="minsLeft">${minutes}</span> Seconds: <span id="secsLeft">${seconds}</span>  </h2>
   <button id="backButton">Go Back to Form</button>
   `
 }
 
+function updateTime(minutes: number, seconds: number) {
+  return `<h2 id="timeLeft">Minutes: <span id="minsLeft">${minutes}</span> Seconds: <span id="secsLeft">${seconds}</span>  </h2>`
+}
 
-export default { formTemplate, countdownTemplate }
+
+
+export default { formTemplate, countdownTemplate, updateTime }
